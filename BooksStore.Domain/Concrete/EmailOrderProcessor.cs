@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Net.Mail;
 using System.Text;
-using BooksStore.Domain.Abstract;
-using BooksStore.Domain.Entities;
+using BookStore.Domain.Abstract;
+using BookStore.Domain.Entities;
 
-namespace BooksStore.Domain.Concrete
+namespace BookStore.Domain.Concrete
 {
     public class EmailSettings
     {

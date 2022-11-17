@@ -1,10 +1,9 @@
-﻿using BooksStore.Domain.Entities;
+﻿using BookStore.Domain.Entities;
 
-namespace BooksStore.Domain.Abstract
+namespace BookStore.Domain.Abstract
 {
     public interface ICategoryRepository
     {
-        IQueryable<Product> Products { get; }
         IQueryable<Category> Categories { get; }
         void SaveCategory(Category category);
         Category DeleteCategory(int categoryID);

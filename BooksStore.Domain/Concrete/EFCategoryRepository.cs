@@ -1,7 +1,7 @@
-﻿using BooksStore.Domain.Abstract;
-using BooksStore.Domain.Entities;
+﻿using BookStore.Domain.Abstract;
+using BookStore.Domain.Entities;
 
-namespace BooksStore.Domain.Concrete
+namespace BookStore.Domain.Concrete
 {
     public class EFCategoryRepository : ICategoryRepository
     {
@@ -12,14 +12,16 @@ namespace BooksStore.Domain.Concrete
             _context = context;
         }
 
-        public IQueryable<Product> Products
-        {
-            get { return _context.Products; }
-        }
-
         public IQueryable<Category> Categories
         {
             get { return _context.Categories; }
+        }
+
+        public IQueryable<Product> GetProducts(int categoryID)
+        {
+            Category dbEntry = _context.Categories.Find(categoryID);
+
+            return dbEntry.Products.AsQueryable();
         }
 
         public void SaveCategory(Category category)

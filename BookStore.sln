@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksStore.WebUI", "BooksStore.WebUI\BooksStore.WebUI.csproj", "{DD321844-A815-471B-9269-D6A76D527541}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.WebUI", "BooksStore.WebUI\BookStore.WebUI.csproj", "{DD321844-A815-471B-9269-D6A76D527541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksStore.Domain", "BooksStore.Domain\BooksStore.Domain.csproj", "{DEB082E4-CF70-4456-915E-614607252BF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore.Domain", "BooksStore.Domain\BookStore.Domain.csproj", "{DEB082E4-CF70-4456-915E-614607252BF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

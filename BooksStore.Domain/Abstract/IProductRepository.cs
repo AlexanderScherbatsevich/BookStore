@@ -1,6 +1,6 @@
-﻿using BooksStore.Domain.Entities;
+﻿using BookStore.Domain.Entities;
 
-namespace BooksStore.Domain.Abstract
+namespace BookStore.Domain.Abstract
 {
     public interface IProductRepository
     {

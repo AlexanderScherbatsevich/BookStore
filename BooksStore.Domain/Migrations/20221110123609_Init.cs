@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BooksStore.Domain.Migrations
+namespace BookStore.Domain.Migrations
 {
     public partial class Init : Migration
     {

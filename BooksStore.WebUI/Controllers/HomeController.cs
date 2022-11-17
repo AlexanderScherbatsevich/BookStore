@@ -1,8 +1,8 @@
-﻿using BooksStore.WebUI.Models;
+﻿using BookStore.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BooksStore.WebUI.Controllers
+namespace BookStore.WebUI.Controllers
 {
     public class HomeController : Controller
     {

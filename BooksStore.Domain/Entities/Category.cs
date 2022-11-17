@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace BooksStore.Domain.Entities
+namespace BookStore.Domain.Entities
 {
     public class Category
     {

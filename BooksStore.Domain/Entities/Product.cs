@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BooksStore.Domain.Entities
+namespace BookStore.Domain.Entities
 {
     public class Product
     {
@@ -23,6 +23,7 @@ namespace BooksStore.Domain.Entities
         public string Author { get; set; }
 
         [Required]
+        [Column(TypeName = "decimal(18,2)")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal Price { get; set; }
 
