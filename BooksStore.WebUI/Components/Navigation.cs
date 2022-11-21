@@ -19,7 +19,7 @@ namespace BookStore.WebUI.Components
             IEnumerable<Category> categories = await _categoryRepository.Categories
                 .Distinct()
                 .OrderBy(c => c.Name).ToListAsync();
-            return View(categories);
+            return View("Navigation", categories);
         }
     }
 }

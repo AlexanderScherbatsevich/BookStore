@@ -32,19 +32,34 @@ app.UseRouting();
 app.UseAuthorization();
 
 
-//app.MapControllerRoute(
-//    name: "",
-//    pattern: "{controller=Product}/{action=List}/{category}/{page=1}");
-//app.MapControllerRoute(
-//    name: "",
-//    pattern: "{controller=Product}/{action=List}/{page=1}");
-//app.MapControllerRoute(
-//    name: "",
-//    pattern: "{controller=Product}/{action=List}/{category}");
+app.UseEndpoints(endpoints =>
+{
+    app.MapControllerRoute(
+        name: "",
+        pattern: "",
+        defaults: new { controller = "Products", action = "List", category = (string)null, page = "1" });
 
+    app.MapControllerRoute(
+        name: "",
+        pattern: "Page{page}",
+        defaults: new { controller = "Products", action = "List", category = (string)null },
+        constraints: new { page = @"\d+" });
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    app.MapControllerRoute(
+        name: "",
+        pattern: "{category}",
+        defaults: new { controller = "Products", action = "List", page = "1" });
+
+    app.MapControllerRoute(
+        name: "",
+        pattern: "{category}/Page{page}",
+        defaults: new { controller = "Products", action = "List" },
+        constraints: new { page = @"\d+" });
+
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+});
+
 
 app.Run();
