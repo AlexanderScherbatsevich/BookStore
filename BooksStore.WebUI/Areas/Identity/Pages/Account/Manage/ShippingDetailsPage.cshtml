@@ -1,0 +1,62 @@
+﻿@page
+@model ShippingDetailsPage
+@{
+    ViewData["Title"] = "ShippingDetails";
+    ViewData["ActivePage"] = ManageNavPages.ShippingDetailsPage;
+}
+
+<h3>@ViewData["Title"]</h3>
+<partial name="_StatusMessage" for="StatusMessage" />
+<div class="row">
+    <div class="col-md-6">
+        <form id="profile-form" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Name" class="form-control" />
+                <label asp-for="ShippingDetails.Name" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Line1" class="form-control" />
+                <label asp-for="ShippingDetails.Line1" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.Line1" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Line2" class="form-control" />
+                <label asp-for="ShippingDetails.Line2" class="form-label"></label>
+               
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Line3" class="form-control" />
+                <label asp-for="ShippingDetails.Line3" class="form-label"></label>
+               
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.City" class="form-control" />
+                <label asp-for="ShippingDetails.City" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.City" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.State" class="form-control" />
+                <label asp-for="ShippingDetails.State" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.State" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Zip" class="form-control" />
+                <label asp-for="ShippingDetails.Zip" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.Zip" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <input asp-for="ShippingDetails.Country" class="form-control" />
+                <label asp-for="ShippingDetails.Country" class="form-label"></label>
+                <span asp-validation-for="ShippingDetails.Country" class="text-danger"></span>
+            </div>
+            <button id="update-profile-button" type="submit" class="btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

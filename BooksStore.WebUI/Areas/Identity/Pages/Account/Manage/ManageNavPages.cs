@@ -61,9 +61,9 @@ namespace BookStore.WebUI.Areas.Identity.Pages.Account.Manage
         /// </summary>
         public static string TwoFactorAuthentication => "TwoFactorAuthentication";
 
-        public static string Cart => "Cart";
+        public static string CartPage => "CartPage";
 
-        public static string ShippingDetails => "ShippingDetails";
+        public static string ShippingDetailsPage => "ShippingDetailsPage";
 
 
 
@@ -120,8 +120,8 @@ namespace BookStore.WebUI.Areas.Identity.Pages.Account.Manage
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
 
-        public static string CartNavClass(ViewContext viewContext) => PageNavClass(viewContext, Cart);
-        public static string ShippingDetailsNavClass(ViewContext viewContext) => PageNavClass(viewContext, ShippingDetails);
+        public static string CartPageNavClass(ViewContext viewContext) => PageNavClass(viewContext, CartPage);
+        public static string ShippingDetailsPageNavClass(ViewContext viewContext) => PageNavClass(viewContext, ShippingDetailsPage);
 
 
         public static string PageNavClass(ViewContext viewContext, string page)

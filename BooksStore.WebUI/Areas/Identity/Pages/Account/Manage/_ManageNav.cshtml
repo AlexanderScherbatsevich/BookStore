@@ -10,9 +10,9 @@
     {
         <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
     }
-    <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
+ @*   <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>
     <li class="nav-item"><a class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
-    
-    <li class="nav-item"><a class="nav-link @ManageNavPages.CartNavClass(ViewContext)" id="" asp-page="./Cart">Cart</a></li>
-    <li class="nav-item"><a class="nav-link @ManageNavPages.ShippingDetailsNavClass(ViewContext)" id="" asp-page="./ShippingDetails">Shipping Details</a></li>
+    *@
+    <li class="nav-item"><a class="nav-link @ManageNavPages.CartPageNavClass(ViewContext)" id="" asp-page="./CartPage">Cart</a></li>
+    <li class="nav-item"><a class="nav-link @ManageNavPages.ShippingDetailsPageNavClass(ViewContext)" id="" asp-page="./ShippingDetailsPage">Shipping Details</a></li>
 </ul>

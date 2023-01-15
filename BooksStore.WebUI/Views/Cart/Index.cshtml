@@ -1,0 +1,38 @@
+﻿@model Cart
+@{
+    ViewData["Title"] = "Cart";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<p>From Json: @ViewBag.Json</p>
+
+
+<h2>Deserialize</h2>
+<table width="90%" align="center">
+    <thead>
+        <tr>
+            <th align="center">Quantity</th>
+            <th align="left">Item</th>
+            <th align="right">Price</th>
+            <th align="right">SubTotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.Lines)
+            {
+                <tr>
+                    <td align="center">@line.Quantity</td>
+                    <td align="left">@line.Name</td>
+                    <td align="right">@line.Price.ToString("c")</td>
+                    <td align="right">@((line.Quantity * line.Price).ToString("c"))</td>
+                </tr>
+            }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" align="right">Total:</td>
+            <td align="right">@Model.ComputeTotalValue().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>

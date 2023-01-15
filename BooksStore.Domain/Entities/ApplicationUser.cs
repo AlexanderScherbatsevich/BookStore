@@ -6,9 +6,6 @@ namespace BookStore.Domain.Entities
     public class ApplicationUser : IdentityUser<Guid>
     {
         public string Cart { get; set; } = string.Empty;
-
-        [ForeignKey("ShippingDetails")]
-        public int ShippingDetailsId { get; set; }
-
+        public string ShippingDetails { get; set; } = string.Empty;
     }
 }
