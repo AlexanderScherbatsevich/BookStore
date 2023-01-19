@@ -1,13 +1,14 @@
 ﻿@model Product
 
+
 <div class="item">
     <p>
         <h3>@Model.Name</h3>
         (@Model.Category.Name)
-        <h4>@Model.Price.ToString("c")</h4> 
+        <h4>@Model.Price.ToString("c")</h4>
     </p>
     <div class="item">
-        <form asp-controller="Cart" asp-action="AddToCart" asp-route-returnUrl="@Url.Action("List", "Product", new { area = "" })">
+        <form asp-controller="Cart" asp-action="AddToCart" asp-route-returnUrl="@Url.Action("List", "Product")">
             <input asp-for="Id" type="hidden" />
             <input type="submit" value="+ Add to cart" />
         </form>

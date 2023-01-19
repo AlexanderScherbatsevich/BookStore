@@ -20,6 +20,8 @@ namespace BookStore.WebUI.TagHelpers
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+        public int? CategoryId { get; set; }
         public string PageAction { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -45,7 +47,8 @@ namespace BookStore.WebUI.TagHelpers
             if (page == this.PagingInfo.CurrentPage)
                 item.AddCssClass("active");
             else
-                link.Attributes["href"] = urlHelper.Action(PageAction, new { page = page });
+                link.Attributes["href"] = urlHelper.Action(PageAction, 
+                    new { category = CategoryId, page = page });
             item.AddCssClass("page-item");
             link.AddCssClass("page-link");
             link.InnerHtml.Append(page.ToString());

@@ -31,7 +31,10 @@ namespace BookStore.WebUI.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalItems = await _productRepository.Products.CountAsync()
+                    TotalItems = await _productRepository.Products
+                    .Include(c => c.Category)
+                    .Where(c => category == null || c.Category.Id == category)
+                    .CountAsync()
                 },
                 CurrentCategoryId = category
             };

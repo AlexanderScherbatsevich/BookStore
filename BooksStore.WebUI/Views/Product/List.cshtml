@@ -3,21 +3,19 @@
 @{
     ViewBag.Title = "Products";
 }
-
-@foreach (var p in Model.Products)
-{
-    <partial name="_ProductSummary" model="p"/>
-}
-
-@*<div class="container">
-    <ul class="pagination justify-content-center">
-        @for (int i = 1; i <= Model.PagingInfo.TotalPages; i++)
+<div class="container row">
+    <div class="col-md-3 p-3">
+        <vc:navigation category-id="@Model.CurrentCategoryId" />
+    </div>
+    <div class="pd-3 col-md-9">
+        @foreach (var p in Model.Products)
         {
-            <li><a asp-route-page="@i" asp-route-category="@Model.CurrentCategoryId" >@i</a></li>
-            <li><a asp-route-page="@i">@i</a></li>
+            <partial name="_ProductSummary" model="p" />
         }
-    </ul>
-</div>*@
+    </div>
 
-<page-link paging-info="Model.PagingInfo" page-action="List"></page-link>
+</div>
+    <div class="align-content-center">
+        <page-link paging-info="Model.PagingInfo" category-id="Model.CurrentCategoryId" page-action="List"></page-link>
+    </div>
 

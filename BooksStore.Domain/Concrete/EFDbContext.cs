@@ -13,6 +13,5 @@ namespace BookStore.Domain.Concrete
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
-        //public DbSet<ShippingDetails> ShippingDetails { get; set; }
     }
 }

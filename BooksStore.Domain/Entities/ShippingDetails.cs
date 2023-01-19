@@ -5,8 +5,6 @@ namespace BookStore.Domain.Entities
 {
     public class ShippingDetails
     {
-        //public int Id { get; set; }
-
         [Required(ErrorMessage = "Please enter a name")]
         [MaxLength(255)]
         public string Name { get; set; } = string.Empty;
@@ -34,11 +32,5 @@ namespace BookStore.Domain.Entities
         [Required(ErrorMessage = "Please enter a country name")]
         [MaxLength(255)]
         public string Country { get; set; } = string.Empty;
-
-        //[ForeignKey("ApplicationUser")]
-        //public Guid ApplicationUserId { get; set; }
-
-        //public ApplicationUser? ApplicationUser { get; set; }
-
     }
 }

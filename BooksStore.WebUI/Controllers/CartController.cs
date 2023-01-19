@@ -88,7 +88,7 @@ namespace BookStore.WebUI.Controllers
             user.Cart = newCartJson;
             await _userManager.UpdateAsync(user);
 
-            return Redirect(returnUrl);
+            return Redirect("/Identity/Account/Manage/CartPage");
         }
 
         public PartialViewResult Summary(Cart cart)

@@ -19,8 +19,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
-//builder.Services.AddScoped<ICartRepository, EFCartRepository>();
-//builder.Services.AddScoped<IShippingDetailsRepository, EFShippingDetailsRepository>();
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
@@ -66,7 +66,7 @@ app.UseEndpoints(endpoints =>
 
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
+        pattern: "{controller=Product}/{action=List}/{id?}");
     app.MapRazorPages();
 });
 

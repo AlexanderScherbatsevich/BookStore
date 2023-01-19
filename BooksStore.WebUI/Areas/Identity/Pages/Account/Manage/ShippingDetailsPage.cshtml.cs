@@ -34,12 +34,6 @@ namespace BookStore.WebUI.Areas.Identity.Pages.Account
         [TempData]
         public string StatusMessage { get; set; }
 
-        //private async Task LoadAsync(ApplicationUser user)
-        //{
-        //    ShippingDetails = await _dbContext.ShippingDetails
-        //        .FindAsync( user.ShippingDetails.ApplicationUserId);
-        //}
-
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
@@ -48,8 +42,8 @@ namespace BookStore.WebUI.Areas.Identity.Pages.Account
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
-            ShippingDetails = JsonConvert.DeserializeObject<ShippingDetails>(user.ShippingDetails) ?? new ShippingDetails();
-            //await LoadAsync(user);
+            ShippingDetails = JsonConvert.DeserializeObject<ShippingDetails>(user.ShippingDetails) 
+                ?? new ShippingDetails();
 
             return Page();
         }
@@ -73,18 +67,6 @@ namespace BookStore.WebUI.Areas.Identity.Pages.Account
 
                 return Page();
             }
-
-            //if(user.ShippingDetails == null)
-            //{
-            //    ShippingDetails.ApplicationUser = user;
-            //    user.ShippingDetails = ShippingDetails;
-
-            //    _dbContext.ShippingDetails.Add(ShippingDetails);
-            //}
-            //else
-            //{
-            //    user.ShippingDetails = ShippingDetails;
-            //}
 
             return Page();
 
