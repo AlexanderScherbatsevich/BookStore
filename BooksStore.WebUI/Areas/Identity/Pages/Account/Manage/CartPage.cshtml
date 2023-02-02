@@ -7,7 +7,7 @@
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h2>Your cart</h2>
-<table width="90%" align="center">
+<table width="50%" align="left">
     <thead>
         <tr>
             <th align="center">Quantity</th>
@@ -25,23 +25,16 @@
                 <td align="right">@line.Price.ToString("c")</td>
                 <td align="right">@((line.Quantity * line.Price).ToString("c"))</td>
                 <td>
-                    @*                    <form asp-controller="Cart" asp-action="RemoveFromCart">
-                <input type="hidden" asp-for="@line.ProductId">
-                <button class="btn btn-lg btn-primary" type="submit">Remove</button>
-                </form>*@
-                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                    {
-                        @Html.Hidden("ProductID", line.ProductId)
-                        @*@Html.HiddenFor(x=>x.ReturnUrl)*@
-                        <input class="btn btn-lg btn-primary" type="submit" value="Remove" />
-                    }
+                    <form asp-controller="Cart" asp-action="RemoveFromCart" asp-route-ProductId="@line.ProductId">
+                        <button class="btn btn-primary mx-2" type="submit">Remove</button>
+                    </form>
                 </td>
             </tr>
         }
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" align="right">Total:</td>
+            <td colspan="3" align="right" class="fw-bold">Total:</td>
             <td align="right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
         </tr>
     </tfoot>

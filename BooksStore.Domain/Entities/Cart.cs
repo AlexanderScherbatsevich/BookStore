@@ -6,7 +6,7 @@
 
         public void AddItem(Product product, int quantity)
         {
-            CartLine line = lineCollection.Where
+            CartLine? line = lineCollection.Where
                 (p => p.ProductId == product.Id).FirstOrDefault();
 
             if (line == null)

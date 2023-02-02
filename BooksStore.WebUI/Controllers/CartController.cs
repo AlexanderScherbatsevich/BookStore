@@ -35,22 +35,6 @@ namespace BookStore.WebUI.Controllers
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
-
-            //var cart = new Cart
-            //{
-            //    lineCollection = new List<CartLine>
-            //    {
-            //        new CartLine(){ ProductId = 1,  Name = "Test1", Price = 10 , Quantity = 5},
-            //        new CartLine(){ ProductId = 2,  Name = "Test2", Price = 20 , Quantity = 4},
-            //        new CartLine(){ ProductId = 3,  Name = "Test3", Price = 30 , Quantity = 3},
-            //        new CartLine(){ ProductId = 4,  Name = "Test4", Price = 40 , Quantity = 2},
-            //        new CartLine(){ ProductId = 5,  Name = "Test5", Price = 50 , Quantity = 1}
-            //    }
-            //};
-            //string json = JsonConvert.SerializeObject(cart);
-            //ViewBag.Json = json;
-            //var newCart = JsonConvert.DeserializeObject<Cart>(json)??new Cart();
-
             return View();
         }
 

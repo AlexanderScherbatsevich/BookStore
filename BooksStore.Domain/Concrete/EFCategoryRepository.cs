@@ -17,38 +17,38 @@ namespace BookStore.Domain.Concrete
             get { return _context.Categories; }
         }
 
-        public IQueryable<Product> GetProducts(int categoryID)
+        public async Task<IQueryable<Product>> GetProducts(int categoryID)
         {
-            Category dbEntry = _context.Categories.Find(categoryID);
+            Category? dbEntry = await _context.Categories.FindAsync(categoryID);
 
             return dbEntry.Products.AsQueryable();
         }
 
-        public void SaveCategory(Category category)
+        public async Task SaveCategory(Category category)
         {
             if (category.Id == 0)
             {
-                _context.Categories.Add(category);
+                await _context.Categories.AddAsync(category);
             }
             else
             {
-                Category dbEntry = _context.Categories.Find(category.Id);
+                Category? dbEntry = await _context.Categories.FindAsync(category.Id);
                 if (dbEntry != null)
                 {
                     dbEntry.Name = category.Name;
                     dbEntry.Products = category.Products;
                 }
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Category DeleteCategory(int categoryID)
+        public async Task<Category> DeleteCategory(int categoryID)
         {
-            Category dbEntry = _context.Categories.Find(categoryID);
+            Category? dbEntry = await _context.Categories.FindAsync(categoryID);
             if (dbEntry != null)
             {
                 _context.Categories.Remove(dbEntry);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return dbEntry;
         }

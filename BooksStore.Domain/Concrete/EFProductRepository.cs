@@ -12,41 +12,41 @@ namespace BookStore.Domain.Concrete
             _context = context;
         }
 
-        public IQueryable<Product> Products
+        public  IQueryable<Product> Products
         {
-            get { return _context.Products; }
+            get { return  _context.Products; }
         }
 
-        public void SaveProduct(Product product)
+        public async Task SaveProduct(Product product)
         {
             if (product.Id == 0)
             {
-                _context.Products.Add(product);
+                await _context.Products.AddAsync(product);
             }
             else
             {
-                Product dbEntry = _context.Products.Find(product.Id);
+                Product? dbEntry = await _context.Products.FindAsync(product.Id);
                 if (dbEntry != null)
                 {
                     dbEntry.Name = product.Name;
                     dbEntry.Author = product.Author;
                     dbEntry.Description = product.Description;
                     dbEntry.Price = product.Price;
-                    dbEntry.Category = product.Category;
-                    //dbEntry.ImageData = product.ImageData;
-                    //dbEntry.ImageMimeType = product.ImageMimeType;
+                    dbEntry.CategoryId = product.CategoryId;
+                    dbEntry.ImageData = product.ImageData;
+                    dbEntry.ImageMimeType = product.ImageMimeType;
                 }
             }
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Product DeleteProduct(int productID)
+        public async Task<Product> DeleteProduct(int productID)
         {
-            Product dbEntry = _context.Products.Find(productID);
+            Product? dbEntry = await _context.Products.FindAsync(productID);
             if (dbEntry != null)
             {
                 _context.Products.Remove(dbEntry);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             return dbEntry;
         }

@@ -29,13 +29,12 @@ namespace BookStore.Domain.Entities
 
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
+        public Category? Category { get; set; }
 
-        [Required(ErrorMessage = "Please specify a category")]
-        public Category Category { get; set; }
+        public byte[]? ImageData { get; set; }
 
-        //public byte[] ImageData { get; set; }
-
-        //[HiddenInput(DisplayValue = false)]
-        //public string ImageMimeType { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        [MaxLength(255)]
+        public string? ImageMimeType { get; set; }
     }
 }

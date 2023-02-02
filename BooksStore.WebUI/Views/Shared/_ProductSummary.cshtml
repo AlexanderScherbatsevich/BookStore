@@ -2,12 +2,22 @@
 
 
 <div class="item">
+    <div>
+        @if (Model.ImageData != null)
+        {
+            <div style="float: left; margin-right: 20px">
+                <img src="@Url.Action("GetImage", "Product", new { Model.Id })" width="150" height="150"
+                 asp-append-version="true" />
+            </div>
+        }
+    </div>
+
     <p>
         <h3>@Model.Name</h3>
         (@Model.Category.Name)
         <h4>@Model.Price.ToString("c")</h4>
     </p>
-    <div class="item">
+    <div class="item mb-3">
         <form asp-controller="Cart" asp-action="AddToCart" asp-route-returnUrl="@Url.Action("List", "Product")">
             <input asp-for="Id" type="hidden" />
             <input type="submit" value="+ Add to cart" />

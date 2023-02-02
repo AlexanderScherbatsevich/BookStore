@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Product>
+
+<h1>All Products</h1>
+<hr />
+<p><a asp-action="Create" class="btn btn-secondary">Add a new product</a><hr /> </p>
+
+<table class="Grid">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th class="NumericCol">Price</th>
+        <th colspan="2">Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Author</td>
+            <td>@item.Category.Name</td>
+            <td class="NumericCol">@item.Price.ToString("c")</td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-productId="@item.Id">
+                    <i class="bi bi-pencil-square"></i>Edit</a>
+            </td>
+            <td>
+                <form asp-action="Delete" asp-route-productId="@item.Id" method="post">
+                    <input asp-for="@item.Id" type="hidden" />
+                    <button class="btn btn-danger" type="submit"><i class="bi bi-trash3"></i>Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+

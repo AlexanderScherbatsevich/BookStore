@@ -5,7 +5,7 @@ namespace BookStore.Domain.Abstract
     public interface IProductRepository
     {
         IQueryable<Product> Products { get; }
-        void SaveProduct(Product product);
-        Product DeleteProduct(int productID);
+        Task SaveProduct(Product product);
+        Task<Product> DeleteProduct(int productID);
     }
 }

@@ -1,0 +1,78 @@
+﻿@model Product
+
+@if (Model.Name != null)
+{
+    <h1>Edit @Model.Name</h1>
+}
+else
+{
+    <h1>Create new product</h1>
+}
+
+@*@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ {
+    @Html.EditorForModel()
+    <div class="editor-label">Image</div>
+    <div class="editor-field">
+        @if(Model.ImageData == null)
+         {
+            @:None
+         }
+         else
+         {
+            <img width="150" height="150" src="@Url.Action("GetImage", "Product", new { Model.ProductID })" />
+         }
+        <div>Upload new image: <input type="file" name="Image" /></div>
+    </div>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+ }*@
+
+<form asp-controller="Product" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="Id" type="hidden" />
+    <div class="form-control mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-control mb-3">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-control mb-3">
+        <label asp-for="Author"></label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-control mb-3">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-control mb-3">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="ImageData">Image</label>
+        @if (Model.ImageData == null)
+        {
+            @:None
+        }
+        else
+        {
+            <img src="@Url.Action("GetImage", "Product", new { Model.Id })" width="150" height="150"
+             asp-append-version="true" />
+        }
+        <div>Upload new image: <input type="file" name="Image" /></div>
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Save</button>
+</form>
+<a asp-action="Index">Cancel and back to List</a>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
