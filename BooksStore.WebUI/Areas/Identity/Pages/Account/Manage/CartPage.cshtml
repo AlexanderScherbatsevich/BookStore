@@ -7,6 +7,7 @@
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h2>Your cart</h2>
+<div>
 <table width="50%" align="left">
     <thead>
         <tr>
@@ -39,10 +40,14 @@
         </tr>
     </tfoot>
 </table>
-@*<p align="center" class="actionButtons">
-    <a href="@Model.ReturnUrl">Continue shopping</a>
-    @Html.ActionLink("Checkout now", "Checkout")
-</p>*@
+</div>
+<div class="end-100">
+<p style="flex-direction:column" align="left">
+    <a class="btn btn-primary mx-2" asp-controller="Product" asp-action="List"> Continue shopping</a>
+    <a class="btn btn-primary mx-2" asp-controller="Cart" asp-action="Checkout">Checkout now</a>
+</p>
+</div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

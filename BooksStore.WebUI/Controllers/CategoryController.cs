@@ -35,7 +35,6 @@ namespace BookStore.WebUI.Controllers
             }
             else
             {
-                //something wrong with data values
                 return View(category);
             }
         }

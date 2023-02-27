@@ -7,7 +7,7 @@
         <li class="nav-item">
             @if (@Model.SelectedCategoryId != c.Id)
             {
-                <a class="nav-link" asp-controller="Product" asp-action="List" asp-route-category="@c.Id" asp-route-page="1">@c.Name</a>
+                <a class="nav-link" id="navbarColor01" asp-controller="Product" asp-action="List" asp-route-category="@c.Id" asp-route-page="1">@c.Name</a>
             }
             else
             {

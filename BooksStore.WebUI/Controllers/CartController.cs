@@ -23,11 +23,6 @@ namespace BookStore.WebUI.Controllers
             _userManager = userManager;
         }
 
-        //public CartController(IProductRepository repo)
-        //{
-        //    _repository = repo;
-        //}
-
         public async Task<IActionResult> Index()
         {
             var user = await _userManager.GetUserAsync(User);
