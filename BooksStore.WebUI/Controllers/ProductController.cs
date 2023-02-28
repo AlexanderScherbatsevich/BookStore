@@ -106,8 +106,7 @@ namespace BookStore.WebUI.Controllers
                 return RedirectToAction("Index");
             }
             else
-            {
-                //something wrong with data values
+            {                
                 return View(product);
             }
         }

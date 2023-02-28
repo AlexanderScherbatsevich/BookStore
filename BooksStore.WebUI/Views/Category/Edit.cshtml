@@ -1,0 +1,26 @@
+﻿@model Category
+
+@if (Model.Name != null)
+{
+    <h1>Edit @Model.Name</h1>
+}
+else
+{
+    <h1>Create new category</h1>
+}
+
+<form asp-controller="Category" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <input asp-for="Id" type="hidden" />
+    <div class="form-control mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mb-3">Save</button>
+</form>
+<a asp-action="Index">Cancel and back to list of categories</a>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

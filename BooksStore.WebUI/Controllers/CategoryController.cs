@@ -25,7 +25,7 @@ namespace BookStore.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Category category)
+        public IActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
             {
