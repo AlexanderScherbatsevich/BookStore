@@ -3,19 +3,20 @@
 @{
     ViewBag.Title = "Products";
 }
-<div class="container row">
-    <div class="col-md-3 p-3">
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-2">
+    <div class="col col-md-2 col-lg-2">
         <vc:navigation category-id="@Model.CurrentCategoryId" />
     </div>
-    <div class="pd-3 col-md-9">
-        @foreach (var p in Model.Products)
-        {
-            <partial name="_ProductSummary" model="p" />
-        }
-        <div>
+    <div class="col col-md-10 col-lg-10 ">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+            @foreach (var p in Model.Products)
+            {
+                <partial name="_ProductSummary" model="p" />
+            }
+        </div>
+        <div class="my-5">
             <page-link paging-info="Model.PagingInfo" category-id="Model.CurrentCategoryId" page-action="List"></page-link>
         </div>
     </div>
-
 </div>
-

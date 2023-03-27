@@ -7,47 +7,47 @@
 
 <partial name="_StatusMessage" for="StatusMessage" />
 <h2>Your cart</h2>
-<div>
-<table width="50%" align="left">
-    <thead>
-        <tr>
-            <th align="center">Quantity</th>
-            <th align="left">Item</th>
-            <th align="right">Price</th>
-            <th align="right">SubTotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var line in Model.Cart.Lines)
-        {
+<div class="col-12 mb-5">
+    <table width="50%" align="left">
+        <thead>
             <tr>
-                <td align="center">@line.Quantity</td>
-                <td align="left">@line.Name</td>
-                <td align="right">@line.Price.ToString("c")</td>
-                <td align="right">@((line.Quantity * line.Price).ToString("c"))</td>
-                <td>
-                    <form asp-controller="Cart" asp-action="RemoveFromCart" asp-route-ProductId="@line.ProductId">
-                        <button class="btn btn-primary mx-2" type="submit">Remove</button>
-                    </form>
-                </td>
+                <th align="center">Quantity</th>
+                <th align="left">Item</th>
+                <th align="right">Price</th>
+                <th align="right">SubTotal</th>
             </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" align="right" class="fw-bold">Total:</td>
-            <td align="right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
-        </tr>
-    </tfoot>
-</table>
-</div>
-<div class="end-100">
-<p style="flex-direction:column" align="left">
-    <a class="btn btn-primary mx-2" asp-controller="Product" asp-action="List"> Continue shopping</a>
-    <a class="btn btn-primary mx-2" asp-controller="Cart" asp-action="Checkout">Checkout now</a>
-</p>
-</div>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.Cart.Lines)
+            {
+                <tr>
+                    <td align="center">@line.Quantity</td>
+                    <td align="left">@line.Name</td>
+                    <td align="right">@line.Price.ToString("c")</td>
+                    <td align="right">@((line.Quantity * line.Price).ToString("c"))</td>
+                    <td>
+                        <form asp-controller="Cart" asp-action="RemoveFromCart" asp-route-ProductId="@line.ProductId">
+                            <button class="btn btn-primary mx-2" type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="right" class="fw-bold">Total:</td>
+                <td align="right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
+            </tr>
+        </tfoot>
+    </table>
 
+</div>
+<div class="col-6">
+    <p>
+        <a class="btn btn-primary mx-2" asp-controller="Product" asp-action="List"> Continue shopping</a>
+        <a class="btn btn-primary mx-2" asp-controller="Cart" asp-action="Checkout">Checkout now</a>
+    </p>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

@@ -1,27 +1,39 @@
 ﻿@model Product
 
-
-<div class="item">
-    <div>
-        @if (Model.ImageData != null)
-        {
-            <div style="float: left; margin-right: 20px">
-                <img src="@Url.Action("GetImage", "Product", new { Model.Id })" width="150" height="150"
-                 asp-append-version="true" />
-            </div>
-        }
-    </div>
-
-    <p>
-        <h3>@Model.Name</h3>
-        <h5>@Model.Author</h5>
-        (@Model.Category.Name)
-        <h4>@Model.Price.ToString("c")</h4>
-    </p>
-    <div class="item mb-3">
-        <form asp-controller="Cart" asp-action="AddToCart" asp-route-returnUrl="@Url.Action("List", "Product")">
-            <input asp-for="Id" type="hidden" />
-            <input type="submit" value="+ Add to cart" />
-        </form>
+<div class="col">
+    <div class="card card-scaler">
+        <div class="card-img-top">
+            <a asp-action="Details" asp-route-productId="@Model.Id">
+                <div class="sm-img">
+                    @if (Model.ImageData != null)
+                    {
+                        <img src="@Url.Action("GetImage", "Product", new { Model.Id })"
+                         width="150" height="150"
+                         asp-append-version="true"
+                         alt="Image" />
+                    }
+                    else
+                    {
+                        <img src="/img/default_book.jpg"
+                         width="150" height="150"
+                         asp-append-version="true"
+                         alt="Image" />
+                    }
+                </div>
+            </a>
+        </div>
+        <div class="card-body">
+            <a asp-action="Details" asp-route-productId="@Model.Id">
+                <h5 class="card-title">@Model.Name</h5>
+            </a>
+            <p class="card-text">@Model.Author</p>
+            <div class="price"><h5>@Model.Price.ToString("c")</h5></div>
+            <form asp-controller="Cart" asp-action="AddToCart" asp-route-returnUrl="@Url.Action("List", "Product")">
+                <input asp-for="Id" type="hidden" />
+                <button class="btn btn-primary" type="submit"><i class="bi bi-cart3"></i> +Add to cart</button>
+            </form>
+        </div>
     </div>
 </div>
+
+

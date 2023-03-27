@@ -20,3 +20,60 @@ body {
 nav-link:hover {
     background: #6610f2
 }
+
+.nav-link:hover {
+    background-color: #593196;
+    color: white;
+}
+
+.icon {
+    margin: 0.5rem;
+    font-size: 1.5rem; 
+    color: white;
+}
+
+.btn-search {
+    padding: 0.5rem;
+    background-color: white;
+    text-decoration-color: #593196;
+}
+
+.btn-search:hover {
+    background-color: lightgrey;
+    color: #593196;
+}
+
+.card{
+    background-color: white;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.card-scaler:hover {
+    transform: scale(1.05)
+}
+
+.card .sm-img img {
+    width: 200px;
+    height: 200px;
+    margin: auto;    
+}
+
+.card .lg-img img {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+}
+
+.card a{
+    color: inherit;
+    text-decoration: none;
+}
+
+.price {
+    color: #593196;
+    text-align: end;
+    font-weight:bold;
+}

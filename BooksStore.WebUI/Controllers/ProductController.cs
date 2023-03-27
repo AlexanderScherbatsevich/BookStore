@@ -11,7 +11,7 @@ namespace BookStore.WebUI.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
-        public int PageSize = 4;
+        public int PageSize = 9;
 
         public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
@@ -138,6 +138,14 @@ namespace BookStore.WebUI.Controllers
                 return File(prod.ImageData, prod.ImageMimeType);
             else
                 return null;
+        }
+
+        public async Task<IActionResult> Details(int productId)
+        {
+            var product = await _productRepository.Products
+                .Include(p=>p.Category)
+                .FirstOrDefaultAsync(p => p.Id == productId);
+            return View(product);
         }
     }
 }
